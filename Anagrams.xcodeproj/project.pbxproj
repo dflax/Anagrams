@@ -34,6 +34,7 @@
 		82C889D3198B261C00F90156 /* wrong.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82C889B8198B19CF00F90156 /* wrong.m4a */; };
 		FE22F0651AF120F70045A060 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE22F0641AF120F70045A060 /* GameController.swift */; };
 		FE22F0671AF125080045A060 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE22F0661AF125080045A060 /* TileView.swift */; };
+		FE22F0691AF137410045A060 /* TargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE22F0681AF137410045A060 /* TargetView.swift */; };
 		FE9E96ED1AEED71100AFC64C /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9E96EC1AEED71100AFC64C /* Level.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		82C889D0198B1A4800F90156 /* credits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = credits.txt; sourceTree = "<group>"; };
 		FE22F0641AF120F70045A060 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		FE22F0661AF125080045A060 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		FE22F0681AF137410045A060 /* TargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetView.swift; sourceTree = "<group>"; };
 		FE9E96EC1AEED71100AFC64C /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				FE22F0661AF125080045A060 /* TileView.swift */,
+				FE22F0681AF137410045A060 /* TargetView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				FE9E96ED1AEED71100AFC64C /* Level.swift in Sources */,
 				FE22F0671AF125080045A060 /* TileView.swift in Sources */,
 				82C889A3198B13C600F90156 /* Config.swift in Sources */,
+				FE22F0691AF137410045A060 /* TargetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +505,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -514,7 +518,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

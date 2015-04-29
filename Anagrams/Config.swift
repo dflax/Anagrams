@@ -13,11 +13,11 @@ import UIKit
 let ScreenWidth = UIScreen.mainScreen().bounds.size.width
 let ScreenHeight = UIScreen.mainScreen().bounds.size.height
 let TileMargin: CGFloat = 20.0
+let TileYOffset: UInt32 = 10
 
-
-//Random number generator
+//Random Integer generator
 func randomNumber(#minX:UInt32, #maxX:UInt32) -> Int {
-  let result = (arc4random() % (maxX - minX + 1)) + minX
-  return Int(result)
+	let result = (arc4random() % (maxX - minX + 1)) + minX
+	return Int(result)
 }
 
