@@ -9,20 +9,40 @@
 import UIKit
 
 class ViewController: UIViewController {
-                            
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-  }
 
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
+	private let controller:GameController
 
-  override func prefersStatusBarHidden() -> Bool {
-    return true
-  }
+	required init(coder aDecoder: NSCoder) {
+		controller = GameController()
+		super.init(coder: aDecoder)
+	}
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+
+		let level1 = Level(levelNumber: 1)
+		println("anagrams: \(level1.anagrams)")
+
+		// add one layer for all game elements
+		let gameView = UIView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight))
+		self.view.addSubview(gameView)
+		controller.gameView = gameView
+
+		// Start up and load level 1
+		controller.level = level1
+		controller.dealRandomAnagram()
+	}
+
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+	}
+
+	override func prefersStatusBarHidden() -> Bool {
+		return true
+	}
+
+
 
 }
+
 
