@@ -8,14 +8,26 @@
 
 import UIKit
 
+// Delegate protocol to inform Game Controller that tile has dropped.
+protocol TileDragDelegateProtocol {
+	func tileView(tileView: TileView, didDragToPoint: CGPoint)
+}
+
 //1
 class TileView:UIImageView {
+
+	// Touch Offsets
+	private var xOffset: CGFloat = 0.0
+	private var yOffset: CGFloat = 0.0
 
 	//2
 	var letter: Character
 
 	//3
 	var isMatched: Bool = false
+
+	// Delegate protocol property
+	var dragDelegate: TileDragDelegateProtocol?
 
 	// 4 this should never be called
 	required init(coder aDecoder:NSCoder) {
@@ -32,6 +44,9 @@ class TileView:UIImageView {
 		// superclass initializer
 		// references to superview's "self" must take place after super.init
 		super.init(image:image)
+
+		// Enable touch movement
+		self.userInteractionEnabled = true
 
 		// 6 resize the tile
 		let scale = sideLength / image.size.width
@@ -60,6 +75,32 @@ class TileView:UIImageView {
 		let yOffset = CGFloat(randomNumber(minX: 0, maxX: TileYOffset) - Int(TileYOffset))
 		self.center = CGPointMake(self.center.x, self.center.y + yOffset)
 	}
+
+	//1
+	override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+		if let touch = touches.first as? UITouch {
+			let point = touch.locationInView(self.superview)
+			xOffset = point.x - self.center.x
+			yOffset = point.y - self.center.y
+		}
+	}
+
+	//2
+	override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+		if let touch = touches.first as? UITouch {
+			let point = touch.locationInView(self.superview)
+			self.center = CGPointMake(point.x - xOffset, point.y - yOffset)
+		}
+	}
+
+	//3
+	override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+		self.touchesMoved(touches, withEvent: event)
+
+		// Inform the delegate that the drag and drop has completed
+		dragDelegate?.tileView(self, didDragToPoint: self.center)
+	}
+
 
 
 }
