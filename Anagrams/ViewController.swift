@@ -20,6 +20,8 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+println("isPad: \(isPad)")
+
 		let level1 = Level(levelNumber: 1)
 		println("anagrams: \(level1.anagrams)")
 

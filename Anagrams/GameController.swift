@@ -22,6 +22,9 @@ class GameController {
 	private var secondsLeft: Int = 0
 	private var timer: NSTimer?
 
+	// For scores
+	private var data = GameData()
+
 	init() {
 	}
 
@@ -185,6 +188,11 @@ extension GameController: TileDragDelegateProtocol {
 				println("Success! You should place the tile here!")
 				self.placeTile(tileView, targetView: targetView)
 
+				// Give points
+				data.points += level.pointsPerTile
+//				hud.gamePoints.value = data.points
+				hud.gamePoints.setValue(data.points, duration: 0.5)
+
 				println("Check if the player has completed the phrase")
 				//check for finished game
 				self.checkForSuccess()
@@ -195,6 +203,13 @@ extension GameController: TileDragDelegateProtocol {
 
 				//1
 				tileView.randomize()
+
+				// Remove points on failed drop
+				data.points -= level.pointsPerTile/2
+
+				// Update the HUD for the loss of points
+//				hud.gamePoints.value = data.points
+				hud.gamePoints.setValue(data.points, duration: 0.25)
 
 				//2
 				UIView.animateWithDuration(0.35, delay:0.00, options:UIViewAnimationOptions.CurveEaseOut,
