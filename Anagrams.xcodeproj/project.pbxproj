@@ -36,6 +36,8 @@
 		FE22F0671AF125080045A060 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE22F0661AF125080045A060 /* TileView.swift */; };
 		FE22F0691AF137410045A060 /* TargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE22F0681AF137410045A060 /* TargetView.swift */; };
 		FE9E96ED1AEED71100AFC64C /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9E96EC1AEED71100AFC64C /* Level.swift */; };
+		FEF3819D1AF27E2500782BB2 /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF3819C1AF27E2500782BB2 /* StopwatchView.swift */; };
+		FEF3819F1AF27ED600782BB2 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF3819E1AF27ED600782BB2 /* HUDView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		FE22F0661AF125080045A060 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		FE22F0681AF137410045A060 /* TargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetView.swift; sourceTree = "<group>"; };
 		FE9E96EC1AEED71100AFC64C /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		FEF3819C1AF27E2500782BB2 /* StopwatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
+		FEF3819E1AF27ED600782BB2 /* HUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +201,8 @@
 			children = (
 				FE22F0661AF125080045A060 /* TileView.swift */,
 				FE22F0681AF137410045A060 /* TargetView.swift */,
+				FEF3819C1AF27E2500782BB2 /* StopwatchView.swift */,
+				FEF3819E1AF27ED600782BB2 /* HUDView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -379,12 +385,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEF3819F1AF27ED600782BB2 /* HUDView.swift in Sources */,
 				82C88988198B13A700F90156 /* ViewController.swift in Sources */,
 				FE22F0651AF120F70045A060 /* GameController.swift in Sources */,
 				82C88986198B13A700F90156 /* AppDelegate.swift in Sources */,
 				FE9E96ED1AEED71100AFC64C /* Level.swift in Sources */,
 				FE22F0671AF125080045A060 /* TileView.swift in Sources */,
 				82C889A3198B13C600F90156 /* Config.swift in Sources */,
+				FEF3819D1AF27E2500782BB2 /* StopwatchView.swift in Sources */,
 				FE22F0691AF137410045A060 /* TargetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

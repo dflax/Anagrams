@@ -11,15 +11,21 @@ import UIKit
 class GameController {
 
 	var gameView: UIView!
-	var level: Level!
+	var level:    Level!
+	var hud:      HUDView!
 
 	private var tiles   = [TileView]()
 	private var targets = [TargetView]()
 
+	// For the level timer
+	//stopwatch variables
+	private var secondsLeft: Int = 0
+	private var timer: NSTimer?
+
 	init() {
 	}
 
-	// Hand out a random anagram to the user
+	// Hand out a random anagram to the user and start the level timer
 	func dealRandomAnagram () {
 		//1
 		assert(level.anagrams.count > 0, "no level loaded")
@@ -83,6 +89,9 @@ class GameController {
 				tiles.append(tile)
 			}
 		}
+
+		// Start the timer
+		self.startStopwatch()
 	}
 
 	// MARK: - Game Logic Bits
@@ -118,7 +127,37 @@ class GameController {
 			}
 		}
 		println("Game Over!")
+		//stop the stopwatch
+		self.stopStopwatch()
 	}
+
+	// MARK: - Timer methods
+
+	// Start the stop watch itself
+	func startStopwatch() {
+		// initialize the timer HUD
+		secondsLeft = level.timeToSolve
+		hud.stopwatch.setSeconds(secondsLeft)
+
+		// schedule a new timer
+		timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector:"tick:", userInfo: nil, repeats: true)
+	}
+
+	// Stop the stopwatch
+	func stopStopwatch() {
+		timer?.invalidate()
+		timer = nil
+	}
+
+	// Define a tick for each click of the stop watch
+	@objc func tick(timer: NSTimer) {
+		secondsLeft--
+		hud.stopwatch.setSeconds(secondsLeft)
+		if secondsLeft == 0 {
+			self.stopStopwatch()
+		}
+	}
+
 
 }
 
